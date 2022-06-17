@@ -1,0 +1,11 @@
+<div class="test">test class</div>
+<!-- <span class="value" text="getValue($row())" /> -->
+<div class="labelvalue"></div>
+<fastForEach args="text: getValue($row()), as: '$col'" >
+   <render args="$col"/>
+</fastForEach>
+<strong if="isAllowed($row())"
+   class="product sku">
+    <span class="label" text="label" />
+    <span class="value" text="getValue($row())" />
+</strong>

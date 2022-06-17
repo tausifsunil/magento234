@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="custom.view.top" htmlTag="div" htmlClass="sectiontwo">
+                <block class="Magento\Cms\Block\Block" name='test112'>
+                    <arguments>
+                            <argument name="block_id" xsi:type="string">eid</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name='test113'>
+                    <arguments>
+                            <argument name="block_id" xsi:type="string">black</argument>
+                    </arguments>
+                </block>
+            </container>    
+        </referenceContainer>
+    </body>
+</page>

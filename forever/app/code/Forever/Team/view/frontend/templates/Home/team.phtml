@@ -1,0 +1,30 @@
+<?php
+// echo "here";
+use Forever\Testimonials\Block\Home\Team;
+$postsRecent = $block->getItems();
+// echo "<pre>"; print_r($postsRecent->getData());exit();
+$isEnableModule = $block->getConfigValue();
+?>
+<?php if ($isEnableModule == 1): ?>
+    <div class="meet-our-team-wraper">
+        <div class="meet-our-team-text-block">
+            <p>Our Creative Force</p>
+            <h3>Meet our team</h3>
+        </div>
+        <div class="meet-our-team-detail-block">
+            <div class="meet-our-team-margin">
+        <?php foreach ($postsRecent as $post): ?>            
+                <div class="meet-our-team-equal-box">
+                    <div class="meet-our-team-image">
+                        <img src="<?= $block->getMediaUrl() .'team/image/'.$post->getImage();?>" alt="Image" width="800" height="1078">
+                    </div>
+                    <div class="meet-our-team-name-designation">
+                        <h2><?= $post->getName();?></h2>
+                        <h4><?= $post->getDesignation ();?></h4>
+                    </div>
+                </div>
+        <?php endforeach;?>
+            </div>
+        </div>
+    </div>
+<?php endif;?>

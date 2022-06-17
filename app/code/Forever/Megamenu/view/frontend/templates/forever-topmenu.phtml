@@ -1,0 +1,90 @@
+<?php
+/**
+ * @var $block Forever\Megamenu\Block\Menu
+ */
+?>
+<?php
+// print_r(123);die();
+$menu = $block->_sysCfg->topmenu;
+$vmenu = $block->_sysCfg->vmenu;
+if (!$menu['enabled'] && !$vmenu['enabled']) {
+    $demo=$block->getChildHtml();
+    // print_r($demo);die();
+    return;
+}
+// return $demo;  
+
+$homeHtml      = $block->drawHomeMenu();
+$menuHtml      = $block->drawMainMenu();
+$mobileMenu = $menuHtml['mobile'];
+$drawHomeMenu  = $menu['home'] ? $homeHtml : '';
+$drawMainMenu  = '';
+?>
+<nav class="navigation mean-nav navigation-mobile" role="navigation" data-action="navigation"
+     <?= /* @noEscape */ $menu['exclude_html_desktop'] ? 'data-exclude_html_desktop="1"' : '' ?> >
+    <ul class="nav-mobile"
+        data-alo-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @noEscape */ $mobileMenu ?>
+    </ul>
+</nav>
+<?php if ($vmenu['enabled']): ?>
+    <?php
+        $vdrawHomeMenu  = $vmenu['home'] ? $homeHtml : '';
+        $vdrawMainMenu  = '';
+    if ($vmenu['mainCat']) {
+        $vdesktop     = $menuHtml['desktop'];
+        $vids  = explode(',', $vmenu['notIncludeNav']);
+        foreach ($vids as $id) { unset($vdesktop[$id]); }
+        $vdrawMainMenu = implode("\n", $vdesktop);
+    }
+    ?>
+    <div class="vmegamenu vertical-menu clearfix"
+        <?= /* @noEscape */ $vmenu['exclude_html_mobile'] ? 'data-exclude_html_mobile="1"' : '' ?> >
+        <div class="block-title block-title-vmegamenu v-title">
+            <strong>
+                <span class="vmegamenu-subtitle"><?= /* @noEscape */ __($block->getRootName())?></span>
+                <span class="icon-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </strong>
+        </div>
+        <div class="block-vmegamenu-content">
+            <ul class="nav-desktop vmegamenu-narrow clearfix">
+                <?= /* @noEscape */ $vdrawHomeMenu ?>
+                <?= /* @noEscape */ $vdrawMainMenu ?>
+                <li class="all-cat">
+                    <span><?= /* @noEscape */ __('All Categories')?></span>
+                    <span style="display:none"><?= /* @noEscape */ __('Close')?></span></li>
+            </ul>
+        </div>
+    </div>
+<?php endif ?>
+<?php if ($menu['enabled']): ?>
+    <?php
+    if ($menu['mainCat']) {
+        $desktop     = $menuHtml['desktop'];
+        $ids  = explode(',', $menu['notIncludeNav']);
+        foreach ($ids as $id) { unset($desktop[$id]); }
+        $drawMainMenu = implode("\n", $desktop);
+    }
+    ?>
+    <?php
+        $classes  = $menu['sticker'] ? 'sticker' : '';
+        $classes .= ($menu['fullWidth'] == 2) ? ' menufullwidth' : '';
+    ?>
+    <div class="megamenu clearfix"
+        <?= /* @noEscape */ $menu['exclude_html_mobile'] ? 'data-exclude_html_mobile="1"' : '' ?> >
+        <ul class="nav-desktop  <?= /* @noEscape */ $classes; ?>"
+            data-fullwidth="<?= /* @noEscape */ $menu['fullWidth'] ?>"
+            data-breakpoint="<?= /* @noEscape */ $menu['switcher'] ?>"
+            >
+            <?= /* @noEscape */ $drawHomeMenu ?>
+            <?= /* @noEscape */ $drawMainMenu ?>
+        </ul>
+    </div>
+<?php endif ?>
+<script type="text/javascript">
+    require(['jquery','Forever_Megamenu/js/megamenu']);
+</script>

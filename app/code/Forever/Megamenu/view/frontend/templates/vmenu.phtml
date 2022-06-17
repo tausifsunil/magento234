@@ -1,0 +1,35 @@
+<?php
+$vmenu = $block->_sysCfg->vmenu;
+$menu  = $block->_sysCfg->topmenu;
+
+if (!$vmenu['enabled']) {
+    echo $block->getChildHtml();
+    return;
+}
+$menuHtml = $block->drawMainMenu();
+$mobileMenu = $menuHtml['mobile'];
+$desktop = $menuHtml['desktop'];
+$ids  = explode(',', $vmenu['notIncludeNav']);
+foreach ($ids as $id) { unset($desktop[$id]); }
+$drawHomeMenu = $vmenu['home'] ? $block->drawHomeMenu() : '';
+$drawMainMenu = $vmenu['mainCat'] ? implode("\n", $desktop) : '';
+?>
+<div class="vmegamenu clearfix"
+    <?= /* @noEscape */ $vmenu['exclude_html_mobile'] ? 'data-exclude_html_mobile="1"' : '' ?> >
+      <ul class="nav-desktop">
+            <?= /* @noEscape */ $drawHomeMenu ?>
+            <?= /* @noEscape */ $drawMainMenu ?>
+      </ul>
+</div>
+<?php if (!$menu['enabled']): ?>
+<nav class="navigation" role="navigation"
+    <?= /* @noEscape */ $menu['exclude_html_desktop'] ? 'data-exclude_html_desktop="1"' : '' ?> >
+      <ul class="nav-mobile" 
+         data-alo-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+            <?= /* @noEscape */ $mobileMenu ?>
+      </ul>
+</nav>
+<?php endif; ?>
+<script type="text/javascript">
+      require(['jquery','Forever_Megamenu/js/megamenu']);
+</script>

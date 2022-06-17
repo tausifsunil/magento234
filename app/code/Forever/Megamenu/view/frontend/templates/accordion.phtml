@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var $block Forever\Megamenu\Block\Menu
+ */
+?>
+<?php
+$accordion = $block->_sysCfg->accordion;
+if (!$accordion['enabled']) {
+    echo $block->getChildHtml();
+    return;
+}
+$menuHtml = $block->drawMainMenu();
+$mobileMenu = $menuHtml['mobile'];
+?>
+<div class="accordion-container">
+    <div class="meanmenu-accordion">
+        <h3 class="accor-title"><?= /* @noEscape */ __($block->getRootName())?></h3>
+        <ul class="accordion nav-accordion"
+            data-menu-init='{{"accordion":true, "closedSign":"collapse",
+            "openedSign":"expand", "openedActive":true}}' >
+            <?= /* @noEscape */ $mobileMenu ?>
+        </ul>    
+        <div class="all-cat">
+            <span>
+                <?= /* @noEscape */ __('All Categories')?>
+            </span>
+            <span style="display:none"><?= /* @noEscape */ __('Close')?></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+   require(['jquery','Forever_Megamenu/js/megamenu']);
+</script>

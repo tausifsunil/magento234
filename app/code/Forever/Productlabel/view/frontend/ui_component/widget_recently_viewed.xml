@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="widget_columns">
+        <!-- <column name="sku" component="Forever_Productlabel/js/product/sku" displayArea="general-area"> -->
+        <column name="productlabel" component="Forever_Productlabel/js/product/sku" displayArea="general-area">
+            <settings>
+                <label translate="true">SKU</label>
+                <bodyTmpl>Forever_Productlabel/product/sku</bodyTmpl>
+            </settings>
+        </column>
+        <column name="productoption" component="Forever_Productlabel/js/product/sku" displayArea="general-area">
+            <settings>
+                <label translate="true">SKU</label>
+                <bodyTmpl>Forever_Productlabel/product/sku</bodyTmpl>
+            </settings>
+        </column>
+    </columns>
+</listing>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="widget_columns">
+        <column name="sku" component="Forever_Productlabel/js/product/productlabel" displayArea="description-area">
+            <settings>
+                <label translate="true">PRODUCTLABEL</label>
+                <bodyTmpl>Forever_Productlabel/product/productlabel</bodyTmpl>
+            </settings>
+        </column>
+    </columns>
+</listing> -->

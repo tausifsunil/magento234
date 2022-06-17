@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+	    <resources>
+	        <resource id="Magento_Backend::admin">
+	        	<resource id="Forever_Megamenu::forever" title="forever" sortOrder="10">
+	        	    <resource id="Forever_Megamenu::megamenu" title="Mega Menu" sortOrder="10">
+	        	        <resource id="Forever_Megamenu::megamenu_menu" title="Menu" sortOrder="10" />
+	        	        <resource id="Forever_Megamenu::megamenu_extra" title="Extra Menu" sortOrder="20" />
+	        	    </resource>
+	        	</resource>
+	            <resource id="Magento_Backend::stores">
+	                <resource id="Magento_Backend::stores_settings">
+	                    <resource id="Magento_Config::config">
+	                        <resource id="Forever_Megamenu::config_megamenu" title="Mega Menu" />
+	                    </resource>
+	                </resource>
+	            </resource>
+	        </resource>
+	    </resources>
+	</acl>
+</config>

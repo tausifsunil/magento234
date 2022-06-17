@@ -1,0 +1,35 @@
+
+FILE: /var/www/html/m234/app/code/Ict/Customerprice/Controller/Adminhtml/Index/Delete.php
+------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------
+ 37 | ERROR | Method name "_isAllowed" must not be prefixed with an underscore to indicate visibility
+------------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/m234/app/code/Ict/Customerprice/Model/Customerprice.php
+------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------
+ 20 | ERROR | Method name "_construct" must not be prefixed with an underscore to indicate visibility
+------------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/m234/app/code/Ict/Customerprice/Model/ResourceModel/Customerprice.php
+------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------
+ 23 | ERROR | Method name "_construct" must not be prefixed with an underscore to indicate visibility
+------------------------------------------------------------------------------------------------------
+
+
+FILE: /var/www/html/m234/app/code/Ict/Customerprice/Model/ResourceModel/Customerprice/Collection.php
+---------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+---------------------------------------------------------------------------------------------------------------
+ 18 | WARNING | Property name "$_idFieldName" should not be prefixed with an underscore to indicate visibility
+ 25 | ERROR   | Method name "_construct" must not be prefixed with an underscore to indicate visibility
+---------------------------------------------------------------------------------------------------------------
+
+Time: 109ms; Memory: 8MB
+
